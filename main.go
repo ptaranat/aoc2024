@@ -63,5 +63,17 @@ func main() {
 		totalDistance += abs(list1[i] - list2[i])
 	}
 
-	fmt.Println(totalDistance)
+	fmt.Println("Distance: ", totalDistance)
+
+	rcount := make(map[int]int)
+	for _, n := range list2 {
+		rcount[n]++
+	}
+
+	similarityScore := 0
+	for _, n := range list1 {
+		similarityScore += n * rcount[n]
+	}
+
+	fmt.Println("Similarity Score: ", similarityScore)
 }
